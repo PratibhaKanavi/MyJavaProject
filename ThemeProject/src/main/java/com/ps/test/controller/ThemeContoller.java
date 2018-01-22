@@ -36,7 +36,14 @@ public class ThemeContoller {
 	@RequestMapping(value="/test")
 	public ModelAndView homePage(){
 		System.out.println("inside the controller");
-		return new ModelAndView("home");
+		List<RegisterDTO> list = service.getRegisterData();
+		for (RegisterDTO registerDTO : list) {
+			
+			System.out.println("--->"+registerDTO.getLname());
+		}
+		Map<String, Object> map = new HashMap<>();
+		map.put("data", list);
+		return new ModelAndView("home",map);
 	}
 	
 
@@ -73,6 +80,31 @@ public class ThemeContoller {
 	}
 	
 	@RequestMapping("/loginapp")
+	public String logon(@RequestParam String email1,@RequestParam String pwd){
+		System.out.println("inside loginapp");
+		System.out.println("val of-->"+email1);
+		int i=0;
+		try{
+			
+	 i = service.checklogin(email1,pwd);
+	 System.out.println("i--- val--->"+i);
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+	
+	if(i>0){
+		return "redirect:/test.html";
+	}
+	else{
+		return "login";
+		
+	}
+}
+	
+	
+	
+	
+	/*@RequestMapping("/loginapp")
 	public String logon(@RequestParam(value="email1") String email,@RequestParam(value="pwd") String password){
 		System.out.println("inside loginapp");
 		System.out.println("val of-->"+email);
@@ -89,8 +121,9 @@ public class ThemeContoller {
 	}
 	else{
 		return "login";
+		
 	}
-}
+}*/
 	
 	
 	@RequestMapping("/forgotpassword")

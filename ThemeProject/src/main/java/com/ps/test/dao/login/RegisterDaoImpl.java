@@ -77,6 +77,17 @@ public class RegisterDaoImpl implements RegisterDao{
 		session.close();
 		return l1;
 	}
+
+	@Override
+	public List<RegisterDTO> getRegisterData() {
+		// TODO Auto-generated method stub
+		Session session = factory.openSession();
+		Transaction tx = session.beginTransaction();
+		List<RegisterDTO> l1 = session.createQuery("from RegisterDTO").list();
+		tx.commit();
+		session.close();
+		return l1;
+	}
  
 
 }

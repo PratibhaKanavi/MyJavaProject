@@ -16,5 +16,7 @@ public interface RegisterDao {
 
 	List<RegisterDTO> getAllData();
 
+	List<RegisterDTO> getRegisterData();
+
 
 }

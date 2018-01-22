@@ -14,8 +14,53 @@
   <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
+   <script type="text/javascript" src="${pageContext.request.contextPath}/js/min.1..6.js"></script>
+	
+ <%--  <script type="text/javascript" src="${pageContext.request.contextPath}/js/registrtion.js"></script> --%>
+ <script type="text/javascript" src="${pageContext.request.contextPath}/js/registartion.js"></script>
   
+<%--
   <script type="text/javascript">
+  $(document).ready(function() {
+	$("#register").click(function() {
+	var fname = $("#exampleInputName").val();
+	var lname = $("#exampleInputLastName").val();
+	var email = $("#exampleInputEmail1").val();
+	var password = $("#exampleInputPassword1").val();
+	var cpassword = $("#exampleConfirmPassword").val();
+	if (fname == '' || lname == '' || email == '' || password == '' || cpassword == '') {
+	alert("Please fill all fields...!!!!!!");
+	} else if ((password.length) < 8) {
+	alert("Password should atleast 8 character in length...!!!!!!");
+	} else if (!(password).match(cpassword)) {
+	alert("Your passwords don't match. Try again?");
+	} else {
+	$.ajax({
+		url : "saveregister.html",
+		type : "post",
+		data:{
+			fname : fname,
+			lname : lname,
+			email : email,
+			password : password,
+			confirmpwd : cpassword
+		},
+		
+		 success: function(response){
+			 alert("You have Successfully Registered....."); 
+			 window.location = "test.html";
+		 },
+		 error: function(e){
+			          alert('Error: ' + e);
+			
+			         }
+	});
+	}
+	});
+	});
+  </script> --%>
+  
+  <!-- <script type="text/javascript">
     function Validate() {
         var password = document.getElementById("exampleInputPassword1").value;
         var confirmPassword = document.getElementById("exampleConfirmPassword").value;
@@ -25,7 +70,7 @@
         }
         return true;
     }
-</script>
+</script> -->
   
   
   
@@ -35,7 +80,7 @@
     <div class="card card-register mx-auto mt-5">
       <div class="card-header">Register an Account</div>
       <div class="card-body">
-        <form action="saveregister.html"  method="post">
+     <!--    <form action="saveregister.html"  method="post"> -->
           <div class="form-group">
             <div class="form-row">
               <div class="col-md-6">
@@ -64,8 +109,8 @@
               </div>
             </div>
           </div>
-          <button class="btn btn-primary btn-block" onclick="Validate()"> Register</button>
-        </form>
+          <button class="btn btn-primary btn-block"  id="register"> Register</button>
+       <!--  </form> -->
         <div class="text-center">
           <a class="d-block small mt-3" href="login.html">Login Page</a>
           <a class="d-block small" href="forgot-password.html">Forgot Password?</a>

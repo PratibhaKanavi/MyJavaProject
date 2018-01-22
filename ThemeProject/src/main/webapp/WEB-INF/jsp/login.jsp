@@ -14,7 +14,73 @@
   <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
+  <script type="text/javascript" src="${pageContext.request.contextPath}/js/min.1..6.js"></script>
 </head>
+
+<!--<script type="text/javascript">
+
+$(document).ready(function(){
+	$("#login").click(function(){
+	var email = $("#exampleInputEmail1").val();
+	var password = $("#exampleInputPassword1").val();
+	// Checking for blank fields.
+	if( email =='' || password ==''){
+	alert("Please fill all fields...!!!!!!");
+	}else {
+		$.ajax({
+			url : "loginapp.html",
+			type : "get",
+			data:{
+				email : email,
+				password : password
+				},
+				
+				success: function(response){
+					 alert("Login Sucessfull..."); 
+					 window.location = "test.html";
+				 },
+				 error: function(e){
+					 alert("try again!!!!!"); 
+					          window.location = "login.html";
+					         }
+			});
+	}
+	
+	});
+	});
+
+
+
+ $(document).ready(function(){
+	$("#login").click(function() {
+	var email = $("#exampleInputEmail1").val();
+	var pwd = $("#exampleInputPassword1").val();
+	if(email==''|| pwd==''){
+		alert("Please enter the Username and Password ");
+	}
+	else{
+		
+		$.ajax({
+			url : "loginapp.html",
+			type : "get",
+			data:{
+				email : email,
+				password : pwd
+				},
+				success: function(response){
+					 alert("Login Sucessfull..."); 
+					 window.location = "test.html";
+				 },
+				 error: function(e){
+					 alert("try again!!!!!"); 
+					          window.location = "login.html";
+					         }
+			});
+	}
+	
+	});
+}); 
+</script> -->
 
 <body style="background-image: url('img/Arcadia-Power-wind-farm-2.jpg');">
 <div>
@@ -37,7 +103,7 @@
                 <input class="form-check-input" type="checkbox"> Remember Password</label>
             </div>
           </div>
-          <button type="submit" class="btn btn-primary btn-block">Login</button>
+          <button type="submit" class="btn btn-primary btn-block" id="login">Login</button>
         </form>
         <div class="text-center">
           <a class="d-block small mt-3" href="register.html">Register an Account</a>

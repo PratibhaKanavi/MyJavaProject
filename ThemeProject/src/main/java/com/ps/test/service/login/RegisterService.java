@@ -16,5 +16,7 @@ public interface RegisterService {
 
 	List<RegisterDTO> getAllData();
 
+	List<RegisterDTO> getRegisterData();
+
 	
 }

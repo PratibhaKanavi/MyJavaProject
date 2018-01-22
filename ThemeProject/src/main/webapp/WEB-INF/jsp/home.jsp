@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+	pageEncoding="ISO-8859-1"%>
+<%@ page import="java.util.List"%>
+
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -27,11 +33,12 @@
 			</div>
 			
 				<div class="x_content">
-			<form action="">			
-			
-			<h6>gghjhghghghg</h6>
-			<h6>asfagsfahgsfahfsdha</h6>
-			
+			<form action="">		
+			<h1>Registered Name</h1>	
+			<c:forEach items="${data}" var="vml">
+			<c:out value="${vml.fname}"></c:out>
+			</c:forEach>
+			<br><br><br>
 			<a href="pdfgen.html"><input type="button" value="Pdf Generation"></a>
 			</form>
 			

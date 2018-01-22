@@ -45,5 +45,11 @@ public class RegisterServiceImpl implements RegisterService{
 		return dao.getAllData();
 	}
 
+	@Override
+	public List<RegisterDTO> getRegisterData() {
+		// TODO Auto-generated method stub
+		return dao.getRegisterData();
+	}
+
 	
 }
